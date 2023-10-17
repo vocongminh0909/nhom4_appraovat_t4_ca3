@@ -30,7 +30,7 @@ class _LoginPageState extends State<LoginPage> {
         title: const Text('RAO VẶT',style: TextStyle( fontSize: 30.0,  // Đặt kích thước chữ là 30.0
         ),
         ),
-        backgroundColor: Colors.orange,
+        backgroundColor:  Color.fromARGB(254, 255, 170, 0),
         iconTheme: const IconThemeData(
           color: Colors.black, // Đặt màu cho biểu tượng (icon) là màu đen
         ),
@@ -38,9 +38,10 @@ class _LoginPageState extends State<LoginPage> {
         ],
         centerTitle: true, // Đặt giữa cả chiều ngang và chiều dọc
         leading: IconButton(
-          icon: Icon(Icons.arrow_back),
-          onPressed: () {// Xử lý sự kiện khi nhấn nút back ở đây
-            print('Nhấn nút back');
+          icon: Icon(Icons.arrow_back), // Biểu tượng back
+          onPressed: () {
+            // Xử lý khi nút back được nhấn
+            Navigator.pop(context); // Để trở lại trang trước đó (trang chủ)
           },
         ),
       ),
@@ -65,6 +66,12 @@ class _LoginPageState extends State<LoginPage> {
                   border: OutlineInputBorder(), // Đây là phần quan trọng để có viền cho TextFormField.
                   labelText: 'Số điện thoại',
                 ),
+                 validator: (value) {
+                  if (value!.isEmpty) {
+                    return 'Vui lòng nhập số điện thoại';
+                  }
+                  return null;
+                },
               ),
               const SizedBox(height: 16.0),
               TextFormField(
@@ -74,6 +81,12 @@ class _LoginPageState extends State<LoginPage> {
                   border: OutlineInputBorder(), // Đây là phần quan trọng để có viền cho TextFormField.
                   labelText: 'Mật khẩu',
                 ),
+                 validator: (value) {
+                  if (value!.isEmpty) {
+                    return 'Vui lòng nhập số điện thoại';
+                  }
+                  return null;
+                },
               ),
               const SizedBox(height: 16.0, width: 50.0),
               Text('Quên mật khẩu?',
@@ -98,20 +111,19 @@ class _LoginPageState extends State<LoginPage> {
                   onPressed: () {
                     // Điều hướng tới trang đăng ký (RegisterPage)
                     Navigator.push(context,MaterialPageRoute(builder: (context) => RegisterPage()),
-    );
-  },
-  style: ElevatedButton.styleFrom(
-    primary: Colors.orange,
-    minimumSize: Size(150, 40),
-  ),
-  child: const Text('Đăng ký'),
-),
-
-              ],
-              ),
-              const SizedBox(height: 16.0),
-              Text('Quy chế hoạt động sản-Chính sách bảo mật-Liên hệ hỗ trợ',style: TextStyle(fontSize: 12.0)),
-              const SizedBox(height: 20.0),
+                    );
+                    },
+                    style: ElevatedButton.styleFrom(
+                       primary: Colors.orange,
+                       minimumSize: Size(150, 40),
+                       ),
+                       child: const Text('Đăng ký'),
+                       ),
+                       ],
+                        ),
+                        const SizedBox(height: 16.0),
+                        Text('Quy chế hoạt động sản-Chính sách bảo mật-Liên hệ hỗ trợ',style: TextStyle(fontSize: 12.0)),
+                        const SizedBox(height: 20.0),
             ],
           ),
         ),

@@ -1,7 +1,10 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:nhom4_appraovat/CategoriesWidget.dart';
 import 'package:nhom4_appraovat/ItemsWidget.dart';
 import 'package:nhom4_appraovat/account_page.dart';
+import 'package:nhom4_appraovat/ad_detail_page.dart';
 import 'package:nhom4_appraovat/main_nav.dart';
 import 'package:nhom4_appraovat/shopping_cart_page.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
@@ -74,21 +77,16 @@ class _HomePageState extends State<HomePage> {
             child: Center(
               child: Container(
                 width: 300.0, // Đặt độ rộng của thanh nhập liệu
-                height: 33.0,
+                height: 35.0,
                 child: TextField(
-                  style: TextStyle(
-                      fontSize: 12.0), // Đặt kích thước chữ của thanh nhập liệu
+                  style: TextStyle(fontSize: 12.0), // Đặt kích thước chữ của thanh nhập liệu
                   decoration: InputDecoration(
-                    contentPadding: EdgeInsets.symmetric(
-                        vertical:
-                            18.0), // Đặt khoảng cách bên trong thanh nhập liệu
+                    contentPadding: EdgeInsets.symmetric(vertical:18.0), // Đặt khoảng cách bên trong thanh nhập liệu
                     hintText: 'Tìm kiếm sản phẩm trên Rao Vặt...',
                     border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(
-                          6.0), // Đặt góc bo tròn cho thanh nhập liệu
+                      borderRadius: BorderRadius.circular(6.0), // Đặt góc bo tròn cho thanh nhập liệu
                     ),
-                    fillColor: Colors
-                        .white, // Đặt màu nền của thanh nhập liệu thành màu trắng
+                    fillColor: Colors.white, // Đặt màu nền của thanh nhập liệu thành màu trắng
                     filled: true, // Đánh dấu đã đặt màu nền
                     // Đặt biểu tượng tìm kiếm bên phải thanh nhập liệu
                     suffixIcon: Icon(
@@ -129,14 +127,28 @@ class _HomePageState extends State<HomePage> {
             CarouselSlider(
               options: CarouselOptions(
                   autoPlay: true,
-                  height: 110,
+                  height: 85,
                   onPageChanged: ((index, reason) {
                     setState(() {
                       myCurrentIndex = index;
                     });
                   })),
-              items: myitems,
-            ),
+             items: myitems.asMap().entries.map((entry) {
+              final index = entry.key;
+              final imagePath = myitems[index].image.toString(); // Access the asset path
+              return GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => AdDetailPage(imagePath),
+          ),
+        );
+      },
+      child: Image(image: myitems[index].image),
+    );
+  }).toList(),
+),
             AnimatedSmoothIndicator(
               activeIndex: myCurrentIndex,
               count: myitems.length,
@@ -149,6 +161,21 @@ class _HomePageState extends State<HomePage> {
                 paintStyle: PaintingStyle.fill,
               ),
             ),
+            Container(
+              alignment: Alignment.centerLeft,
+              margin: EdgeInsets.symmetric(
+                vertical: 20,
+                horizontal: 10,
+              ),
+              child: Text(
+                'Danh mục sản phẩm',
+                style: TextStyle(
+                    fontSize: 25,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.orange),
+              ),
+            ),
+            CategoriesWidget(),
             Container(
               alignment: Alignment.centerLeft,
               margin: EdgeInsets.symmetric(

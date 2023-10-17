@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'shipping_info_page.dart'; // Điều này giả sử rằng bạn đã tạo file shipping_info_page.dart cho trang nhập thông tin giao hàng
 
 class Shopping_cartPage extends StatelessWidget {
   // Danh sách các sản phẩm trong giỏ hàng (ví dụ)
@@ -6,13 +7,17 @@ class Shopping_cartPage extends StatelessWidget {
     'Sản phẩm 1',
     'Sản phẩm 2',
     'Sản phẩm 3',
+    'Sản phẩm 4',
+    'Sản phẩm 5',
   ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Giỏ hàng'),
+        title: Text('Giỏ hàng',style: TextStyle(fontSize: 22),),
+        centerTitle: true, // Center-align the title
+        backgroundColor: Color.fromARGB(254, 255, 170, 0),
       ),
       body: ListView.separated(
         itemCount: cartItems.length,
@@ -30,7 +35,7 @@ class Shopping_cartPage extends StatelessWidget {
           );
         },
         separatorBuilder: (context, index) {
-          return Divider(); // Tạo đường ngăn cách giữa các mục
+          return const Divider(); // Tạo đường ngăn cách giữa các mục
         },
       ),
       bottomNavigationBar: BottomAppBar(
@@ -42,8 +47,17 @@ class Shopping_cartPage extends StatelessWidget {
               Text('Tổng tiền: 1000đ'), // Hiển thị tổng tiền
               ElevatedButton(
                 onPressed: () {
-                  // Xử lý thanh toán ở đây
+                  // Chuyển hướng qua trang nhập thông tin giao hàng khi nhấn nút "Thanh toán"
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => ShippingInfoPage()),
+                      );
                 },
+                style: ElevatedButton.styleFrom(
+                   primary: Colors.orange, // Màu nền của nút là cam
+                   textStyle: TextStyle(fontSize: 15), // Kích thước văn bản
+                   padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10), // Kích thước nút
+                   ),
                 child: Text('Thanh toán'),
               ),
             ],

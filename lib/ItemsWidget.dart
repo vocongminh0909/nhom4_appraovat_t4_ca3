@@ -23,7 +23,7 @@ class ItemsWidget extends StatelessWidget{
           "trầy nhiều\n"
           "mất gù\n"
           "odo 3000km.",
-      imageUrl: "assets/xemay.jpg",
+      imageUrl: "assets/images/xemay.jpg",
       detailDescription: "Xe máy Thái Nguyên cần bán Yamaha Exciter khóa smartkey 2022 mới 99% biển số thành phố\n"
           "chính chủ bao công chứng bảo hành 1 năm bao trả đổi có hỗ trợ trả góp\n"
           "chỉ cần căn cước công dân xe dưới 20 triệu không cần trả trước xe trên 20 triệu trả trước 20%,\n"
@@ -35,7 +35,7 @@ class ItemsWidget extends StatelessWidget{
       price: "800.000 VND",
       description: "Màu cổ điển\n"
       ,
-      imageUrl: "assets/Dh.jpg" ,
+      imageUrl: "assets/images/dong-ho-deo-tay-ELLE-Man.jpg" ,
     detailDescription: "do không còn nhu cầu sử dụng nữa nên mình bán lại ạ\n"
         "Máy dùng cái nhân, giữ kỹ, chưa qua sửa chữa\n"
         "Bán đồng hồ có đi kèm dây và cáp sạc.\n"
@@ -47,7 +47,7 @@ class ItemsWidget extends StatelessWidget{
         "Card đồ họa : NVIDIA GeForce RTX 3050 4GB GDDR6, Boost Clock 1740MHz, TGP 85W\n"
             "itel core i5\n"
             "Màn hình 15.6 FHD(1920x1080) IPS 250nits Anti-glare, 120Hz, 45% NTSC, DC dimmer",
-        imageUrl: "assets/Laptop.jpg",
+        imageUrl: "assets/images/laptop-rog.jpg",
     detailDescription: "CẦN BÁN LAPTOP ACER E5-571, CPU CORE I3-4005U, RAM 4GB, Ổ CỨNG SSD 128GB VGA\n"
         "INTEL HD GRAPHICS LCD 15.6''INCHS. PHÙ hợp cho các bạn học sinh, sinh viên, và các bạn văn phòng,\n"
         "anh chị nào cần ủng hộ mình nha, LH: CHỊ MINH"),
@@ -60,7 +60,7 @@ class ItemsWidget extends StatelessWidget{
           "Nguyên zin chưa thay phụ kiên\n"
           "Dung lượng pin:87%\n"
           "Sài được 1 năm.",
-      imageUrl: "assets/iphone-14-pro-vang.jpg",
+      imageUrl: "assets/images/iphone-14-pro-vang.jpg",
       detailDescription: "Đồng tháp bán Iphone14 Pro bản 256 Gb hàng VN máy màu Tím mua tại Clickbuy,\n"
           "còn 10 ngày bảo hành hãng. Máy chính chủ dùng nguyên bản 100% ,máy đẹp 99% như mới ,\n" 
           "Pin 89%, full box và phụ kiện theo máy từ đầu. Ae quan tâm inbox ạ."
@@ -129,8 +129,8 @@ class ItemsWidget extends StatelessWidget{
               ),
             ],
             ),
-        ),
-      ],
+            ),
+            ],
     );
   }
 }

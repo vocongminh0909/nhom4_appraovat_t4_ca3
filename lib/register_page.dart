@@ -54,7 +54,7 @@ class _RegisterPageState extends State<RegisterPage> {
               SizedBox(height: 20.0),
               const Align(
                 alignment: Alignment.centerLeft,
-                child: Text('Đăng nhập',style: TextStyle(fontSize: 16.0,fontWeight: FontWeight.bold // Thêm fontWeight để in đậm
+                child: Text('Đăng ký',style: TextStyle(fontSize: 22.0,fontWeight: FontWeight.bold // Thêm fontWeight để in đậm
                 ),
                 ),
               ),

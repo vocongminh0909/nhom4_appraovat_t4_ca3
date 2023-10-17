@@ -31,7 +31,8 @@ class _main_navState extends State<main_nav> {
         onTap: (index) {
           setState(() {
             _currentIndex = index;
-          });
+          }
+          );
         },
         items: const [
           Icon(

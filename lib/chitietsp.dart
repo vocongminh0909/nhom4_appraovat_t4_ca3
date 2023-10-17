@@ -40,7 +40,7 @@ class Chitiet_SP extends StatelessWidget {
       price: "800.000 VND",
       description: "Màu cổ điển\n"
       ,
-      imageUrl: "assets/images/Dh.jpg" ,
+      imageUrl: "assets/images/dong-ho-deo-tay-ELLE-Man.jpg" ,
     detailDescription: "do không còn nhu cầu sử dụng nữa nên mình bán lại ạ\n"
         "Máy dùng cái nhân, giữ kỹ, chưa qua sửa chữa\n"
         "Bán đồng hồ có đi kèm dây và cáp sạc.\n"
@@ -52,7 +52,7 @@ class Chitiet_SP extends StatelessWidget {
         "Card đồ họa : NVIDIA GeForce RTX 3050 4GB GDDR6, Boost Clock 1740MHz, TGP 85W\n"
             "itel core i5\n"
             "Màn hình 15.6 FHD(1920x1080) IPS 250nits Anti-glare, 120Hz, 45% NTSC, DC dimmer",
-        imageUrl: "assets/images/Laptop.jpg",
+        imageUrl: "assets/images/laptop.jpg",
     detailDescription: "CẦN BÁN LAPTOP ACER E5-571, CPU CORE I3-4005U, RAM 4GB, Ổ CỨNG SSD 128GB VGA\n"
         "INTEL HD GRAPHICS LCD 15.6''INCHS. PHÙ hợp cho các bạn học sinh, sinh viên, và các bạn văn phòng,\n"
         "anh chị nào cần ủng hộ mình nha, LH: CHỊ MINH"),
@@ -191,11 +191,9 @@ class ProductDetailPage extends StatelessWidget {
                 // Xử lý khi người dùng nhấn nút thêm vào giỏ hàng
               },
             ),
-
           ],
         ),
       ),
-
     );
   }
 }

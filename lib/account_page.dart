@@ -1,6 +1,7 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:group_list_view/group_list_view.dart';
+import 'package:nhom4_appraovat/account_setting_page.dart';
 import 'package:nhom4_appraovat/login_page.dart';
 import 'package:nhom4_appraovat/main.dart';
 
@@ -59,33 +60,41 @@ Widget _itemBuilder(BuildContext context, IndexPath index) {
           title: Text(
             item,
             style: TextStyle(fontSize: 16, fontWeight: FontWeight.w400),
-          ),
-         trailing: item == 'Đăng nhập'
-    ? IconButton(
-        icon: Icon(Icons.arrow_forward_ios),
-        onPressed: () {
-          // Điều hướng tới trang đăng nhập (LoginPage)
-          Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage()));
-        },
-      )
-    : item == 'Đăng xuất'
-        ? IconButton(
-            icon: Icon(Icons.exit_to_app),
-            onPressed: () {
-              // Xử lý đăng xuất ở đây (xóa thông tin đăng nhập, đăng xuất người dùng)
-              // Sau đó điều hướng tới trang đăng nhập (LoginPage)
-              // Ví dụ:
-              // Xóa thông tin đăng nhập (nếu có)
-              // clearUserLoginInfo();
-              
-              Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage()));
-            },
-          )
-        : Icon(Icons.arrow_forward_ios),
-        ),
+          ),         
+         trailing: item == 'Cài đặt tài khoản'
+            ? IconButton(
+                icon: Icon(Icons.arrow_forward_ios),
+                onPressed: () {
+                  // Điều hướng tới trang cài đặt tài khoản (AccountSettingsPage)
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => AccountSettingsPage()));
+                },
+              )
+            : item == 'Đăng nhập'
+                ? IconButton(
+                    icon: Icon(Icons.arrow_forward_ios),
+                    onPressed: () {
+                      // Điều hướng tới trang đăng nhập (LoginPage)
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage()));
+                    },
+                  )
+            : item == 'Đăng xuất'
+                ? IconButton(
+                    icon: Icon(Icons.exit_to_app),
+                    onPressed: () {
+                      // Xử lý đăng xuất ở đây (xóa thông tin đăng nhập, đăng xuất người dùng)
+                      // Sau đó điều hướng tới trang đăng nhập (LoginPage)
+                      // Ví dụ:
+                      // Xóa thông tin đăng nhập (nếu có)
+                      // clearUserLoginInfo();
+
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage()));
+                    },
+                )
+            : Icon(Icons.arrow_forward_ios),
       ),
-    );
-  }
+    ),
+  );
+}
    
 
   
