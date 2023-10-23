@@ -10,9 +10,12 @@ import 'package:nhom4_appraovat/shopping_cart_page.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
   runApp(MyApp());
 }
+
+class Firebase {}
 
 class MyApp extends StatelessWidget {
   @override
@@ -38,8 +41,6 @@ class _HomePageState extends State<HomePage> {
   ];
 
   int myCurrentIndex = 0;
-
-
 
   @override
   Widget build(BuildContext context) {
@@ -79,14 +80,19 @@ class _HomePageState extends State<HomePage> {
                 width: 300.0, // Đặt độ rộng của thanh nhập liệu
                 height: 35.0,
                 child: TextField(
-                  style: TextStyle(fontSize: 12.0), // Đặt kích thước chữ của thanh nhập liệu
+                  style: TextStyle(
+                      fontSize: 12.0), // Đặt kích thước chữ của thanh nhập liệu
                   decoration: InputDecoration(
-                    contentPadding: EdgeInsets.symmetric(vertical:18.0), // Đặt khoảng cách bên trong thanh nhập liệu
+                    contentPadding: EdgeInsets.symmetric(
+                        vertical:
+                            18.0), // Đặt khoảng cách bên trong thanh nhập liệu
                     hintText: 'Tìm kiếm sản phẩm trên Rao Vặt...',
                     border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(6.0), // Đặt góc bo tròn cho thanh nhập liệu
+                      borderRadius: BorderRadius.circular(
+                          6.0), // Đặt góc bo tròn cho thanh nhập liệu
                     ),
-                    fillColor: Colors.white, // Đặt màu nền của thanh nhập liệu thành màu trắng
+                    fillColor: Colors
+                        .white, // Đặt màu nền của thanh nhập liệu thành màu trắng
                     filled: true, // Đánh dấu đã đặt màu nền
                     // Đặt biểu tượng tìm kiếm bên phải thanh nhập liệu
                     suffixIcon: Icon(
@@ -133,22 +139,23 @@ class _HomePageState extends State<HomePage> {
                       myCurrentIndex = index;
                     });
                   })),
-             items: myitems.asMap().entries.map((entry) {
-              final index = entry.key;
-              final imagePath = myitems[index].image.toString(); // Access the asset path
-              return GestureDetector(
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => AdDetailPage(imagePath),
-          ),
-        );
-      },
-      child: Image(image: myitems[index].image),
-    );
-  }).toList(),
-),
+              items: myitems.asMap().entries.map((entry) {
+                final index = entry.key;
+                final imagePath =
+                    myitems[index].image.toString(); // Access the asset path
+                return GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => AdDetailPage(imagePath),
+                      ),
+                    );
+                  },
+                  child: Image(image: myitems[index].image),
+                );
+              }).toList(),
+            ),
             AnimatedSmoothIndicator(
               activeIndex: myCurrentIndex,
               count: myitems.length,
