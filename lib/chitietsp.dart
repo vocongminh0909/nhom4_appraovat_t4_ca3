@@ -192,6 +192,7 @@ class ProductDetailPage extends StatelessWidget {
               padding: const EdgeInsets.all(16.0),
               child: ElevatedButton(
                 onPressed: () {
+                  
                   // Xử lý khi người dùng xác nhận bình luận
                   final comment = commentController.text; // Lấy nội dung bình luận
                   if (comment.isNotEmpty) {

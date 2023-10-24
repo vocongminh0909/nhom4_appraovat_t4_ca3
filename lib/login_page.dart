@@ -1,23 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/gestures.dart';
 import 'package:nhom4_appraovat/main.dart';
 import 'package:nhom4_appraovat/register_page.dart';
-
-
-
-class LoginApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      home: LoginPage(),
-    );
-  }
-}
 
 class LoginPage extends StatefulWidget {
   @override
   _LoginPageState createState() => _LoginPageState();
 }
-
 
 class _LoginPageState extends State<LoginPage> {
   final TextEditingController _usernameController = TextEditingController();
@@ -28,21 +17,22 @@ class _LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('RAO VẶT',style: TextStyle( fontSize: 30.0,  // Đặt kích thước chữ là 30.0
+        title: const Text(
+          'RAO VẶT',
+          style: TextStyle(
+            fontSize: 30.0,
+          ),
         ),
-        ),
-        backgroundColor:  Color.fromARGB(254, 255, 170, 0),
+        backgroundColor: Colors.orange,
         iconTheme: const IconThemeData(
-          color: Colors.black, // Đặt màu cho biểu tượng (icon) là màu đen
+          color: Colors.black,
         ),
-        actions: const [
-        ],
-        centerTitle: true, // Đặt giữa cả chiều ngang và chiều dọc
+        actions: const [],
+        centerTitle: true,
         leading: IconButton(
-          icon: Icon(Icons.arrow_back), // Biểu tượng back
+          icon: Icon(Icons.arrow_back),
           onPressed: () {
-            // Xử lý khi nút back được nhấn
-            Navigator.pop(context); // Để trở lại trang trước đó (trang chủ)
+            print('Nhấn nút back');
           },
         ),
       ),
@@ -55,43 +45,67 @@ class _LoginPageState extends State<LoginPage> {
               Image.asset('assets/images/logo_rao_vat.jpg'),
               SizedBox(height: 16.0),
               const Align(
-                alignment: Alignment.centerLeft, // Căn trái
-                child: Text('Đăng nhập',style: TextStyle(fontSize: 20.0,fontWeight: FontWeight.bold // Thêm fontWeight để in đậm
-                ),
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  'Đăng nhập',
+                  style: TextStyle(
+                    fontSize: 20.0,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
               ),
               SizedBox(height: 16.0),
               TextFormField(
                 controller: _usernameController,
                 decoration: const InputDecoration(
-                  border: OutlineInputBorder(), // Đây là phần quan trọng để có viền cho TextFormField.
-                  labelText: 'Số điện thoại',
+                  border: OutlineInputBorder(),
+                  labelText: 'Tên đăng nhập',
                 ),
-                 validator: (value) {
-                  if (value!.isEmpty) {
-                    return 'Vui lòng nhập số điện thoại';
-                  }
-                  return null;
-                },
               ),
               const SizedBox(height: 16.0),
               TextFormField(
                 controller: _passwordController,
                 obscureText: true,
                 decoration: const InputDecoration(
-                  border: OutlineInputBorder(), // Đây là phần quan trọng để có viền cho TextFormField.
+                  border: OutlineInputBorder(),
                   labelText: 'Mật khẩu',
                 ),
-                 validator: (value) {
-                  if (value!.isEmpty) {
-                    return 'Vui lòng nhập số điện thoại';
-                  }
-                  return null;
-                },
               ),
-              const SizedBox(height: 16.0, width: 50.0),
-              Text('Quên mật khẩu?',
-                  style:TextStyle( fontSize: 15.0,color: Colors.blue)
+              const SizedBox(height: 16.0),
+              ElevatedButton(
+                onPressed: () {
+                  // Đặt logic đăng nhập ở đây
+                  print("Đăng nhập");
+                },
+                child: Text("ĐĂNG NHẬP"),
+                style: ElevatedButton.styleFrom(
+                  primary: Colors.orange, // Màu nền
+                  onPrimary: Colors.white, // Màu chữ
+                ),
+              ),
+              const SizedBox(height: 16.0),
+              RichText(
+                text: TextSpan(
+                  style: TextStyle(color: Colors.black, fontSize: 14),
+                  children: <TextSpan>[
+                    TextSpan(text: 'Chưa có tài khoản? '),
+                    TextSpan(
+                      text: 'Đăng ký',
+                      style: TextStyle(
+                        color: Colors.blue,
+                        fontWeight: FontWeight.bold, // Bold cho chữ "Đăng ký"
+                      ),
+                      recognizer: TapGestureRecognizer()
+                        ..onTap = () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => RegisterPage()),
+                          );
+                        },
+                    ),
+                  ],
+                ),
               ),
               SizedBox(height: 16.0),
               Row(children: [
@@ -125,6 +139,7 @@ class _LoginPageState extends State<LoginPage> {
                         const SizedBox(height: 16.0),
                         Text('Quy chế hoạt động sản-Chính sách bảo mật-Liên hệ hỗ trợ',style: TextStyle(fontSize: 12.0)),
                         const SizedBox(height: 20.0),
+
             ],
           ),
         ),

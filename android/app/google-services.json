@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "192667955720",
+    "firebase_url": "https://raovat-daa2c-default-rtdb.firebaseio.com",
+    "project_id": "raovat-daa2c",
+    "storage_bucket": "raovat-daa2c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:192667955720:android:867adc84b5bb4abd9657bd",
+        "android_client_info": {
+          "package_name": "com.example.nhom4_appraovat"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyARfexcB_VHZdcQwKqUd6kz0E5bKE344Kg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
