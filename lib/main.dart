@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:nhom4_appraovat/CategoriesWidget.dart';
 import 'package:nhom4_appraovat/ItemsWidget.dart';
+import 'package:nhom4_appraovat/Search_product.dart';
 import 'package:nhom4_appraovat/account_page.dart';
 import 'package:nhom4_appraovat/ad_detail_page.dart';
 import 'package:nhom4_appraovat/main_nav.dart';
@@ -40,7 +41,6 @@ class _HomePageState extends State<HomePage> {
   int myCurrentIndex = 0;
 
 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -75,24 +75,34 @@ class _HomePageState extends State<HomePage> {
         actions: [
           Expanded(
             child: Center(
-              child: Container(
-                width: 300.0, // Đặt độ rộng của thanh nhập liệu
-                height: 35.0,
-                child: TextField(
-                  style: TextStyle(fontSize: 12.0), // Đặt kích thước chữ của thanh nhập liệu
-                  decoration: InputDecoration(
-                    contentPadding: EdgeInsets.symmetric(vertical:18.0), // Đặt khoảng cách bên trong thanh nhập liệu
-                    hintText: 'Tìm kiếm sản phẩm trên Rao Vặt...',
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(6.0), // Đặt góc bo tròn cho thanh nhập liệu
+              child: GestureDetector(
+                onTap: () {
+                  // Điều hướng đến màn hình tìm kiếm khi nhấn vào thanh tìm kiếm.
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => SearchProductPage()));
+                },
+                child: Container(
+                  width: 300.0,
+                  height: 35.0,
+                  child: TextField(
+                    style: TextStyle(fontSize: 12.0),
+                    decoration: InputDecoration(
+                      contentPadding: EdgeInsets.symmetric(vertical: 18.0),
+                      hintText: 'Tìm kiếm sản phẩm trên Rao Vặt...',
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(6.0),
+                      ),
+                      fillColor: Colors.white,
+                      filled: true,
+                      suffixIcon: IconButton(
+                        icon: Icon(
+                          Icons.search,
+                          color: Colors.orange,
+                          ),
+                          onPressed: () {
+                             Navigator.push(context, MaterialPageRoute(builder: (context) => SearchProductPage()));
+                              }
+                              ),
                     ),
-                    fillColor: Colors.white, // Đặt màu nền của thanh nhập liệu thành màu trắng
-                    filled: true, // Đánh dấu đã đặt màu nền
-                    // Đặt biểu tượng tìm kiếm bên phải thanh nhập liệu
-                    suffixIcon: Icon(
-                      Icons.search,
-                      color: Colors.orange,
-                    ), // Đặt màu của biểu tượng tìm kiếm
                   ),
                 ),
               ),

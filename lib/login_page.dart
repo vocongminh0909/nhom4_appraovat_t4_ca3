@@ -23,6 +23,7 @@ class _LoginPageState extends State<LoginPage> {
   final TextEditingController _usernameController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
 
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -120,7 +121,7 @@ class _LoginPageState extends State<LoginPage> {
                        child: const Text('Đăng ký'),
                        ),
                        ],
-                        ),
+                       ),
                         const SizedBox(height: 16.0),
                         Text('Quy chế hoạt động sản-Chính sách bảo mật-Liên hệ hỗ trợ',style: TextStyle(fontSize: 12.0)),
                         const SizedBox(height: 20.0),

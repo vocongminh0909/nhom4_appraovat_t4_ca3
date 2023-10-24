@@ -76,6 +76,10 @@ class Chitiet_SP extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    List<String> comments = [];
+    final commentController = TextEditingController(); // Để quản lý nội dung bình luận
+
+
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
@@ -108,6 +112,9 @@ class ProductDetailPage extends StatelessWidget {
   final Product product;
 
   ProductDetailPage({required this.product});
+
+      List<String> comments = [];
+    final commentController = TextEditingController(); // Để quản lý nội dung bình luận
 
   @override
   Widget build(BuildContext context) {
@@ -151,7 +158,6 @@ class ProductDetailPage extends StatelessWidget {
               textAlign: TextAlign.left,
             ),
           ),
-          Divider(color: Colors.grey, thickness: 1),
           Padding(
             padding: const EdgeInsets.all(16.0),
             child: Text(
@@ -166,6 +172,37 @@ class ProductDetailPage extends StatelessWidget {
               style: TextStyle(fontSize: 16, color: Colors.black),
             ),
           ),
+            Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Text(
+                "Bình luận:",
+                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: TextField(
+                controller: commentController, // Quản lý nội dung bình luận
+                decoration: InputDecoration(
+                  hintText: 'Nhập bình luận của bạn...',
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: ElevatedButton(
+                onPressed: () {
+                  // Xử lý khi người dùng xác nhận bình luận
+                  final comment = commentController.text; // Lấy nội dung bình luận
+                  if (comment.isNotEmpty) {
+                    // Thực hiện mã xử lý bình luận ở đây
+                    print('Bình luận của người dùng: $comment');
+                    // Có thể lưu bình luận vào cơ sở dữ liệu hoặc hiển thị trên giao diện
+                  }
+                },
+                child: Text('Gửi'),
+              ),
+            ),
         ],
       ),
       ),
@@ -191,8 +228,8 @@ class ProductDetailPage extends StatelessWidget {
                 // Xử lý khi người dùng nhấn nút thêm vào giỏ hàng
               },
             ),
-          ],
-        ),
+          ],       
+        ),     
       ),
     );
   }
